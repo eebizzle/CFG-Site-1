@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./stylesheet.css"> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    </head>
+
+
+    <body>
+        <div class="topnav">
+            <a href="./Page1.html">Home</a>
+            <a class = "active" href="./random.html">Random Recommendations</a>
+            <a href="./index2.html">Contact us</a>
+          </div>
+
+        <div class="name-container">
+             <h1 contenteditable>Random recommendations</h1>
+    
+        <p> Not sure where you want to go? Not sure what you want to do? Fret no more! We have created a random recommendations generator for you - simply click the button and let Fate decide your next trip!</p>
+
+        
+            <div class="vertical-center">
+        <button type="button" class="btn btn-light" onclick="generateRandomDestination()"> Load your lucky location </button>
+            </div>
+       
+
+        <div id="destinationContainer">
+            <div class = "destination">
+                <h3 id="destinationName"></h3>
+                <div class="slideshow-container">
+                    <img src="default2.jpg" alt="Default Image">
+                    <img src="" alt="">
+                </div>
+                <div class="textBox">
+                    <p id="destinationText"></p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function generateRandomDestination() {
+                var destination = [
+                    {
+                    name: "Ibiza",
+                    images: ["ibiza-coves.jpg", "ibiza.jpg"],
+                    text: "Welcome to Ibiza, the land where the sun never sets and the party never stops! Known as the ultimate destination for electronic music enthusiasts, this small Mediterranean island packs a punch. Get ready to dance your heart out in world-renowned clubs, soak up the sun on stunning beaches, and indulge in delicious local cuisine. Ibiza offers a unique blend of wild parties, breathtaking natural beauty, and a vibrant atmosphere that will leave you with unforgettable memories and a longing to return for more."
+                    }, 
+                    {
+                    name: "Sofia",
+                    images: ["sofia.jpg", "sofia2.jpg"], 
+                    text: "Welcome to Sofia, a hidden gem nestled in the heart of the Balkans. This vibrant capital city offers a delightful mix of ancient history and modern charm. Explore the stunning Alexander Nevsky Cathedral, wander through the colorful streets of Vitosha Boulevard, and dive into the rich cultural heritage of this captivating destination. Sofia is a city of contrasts, where traditional Bulgarian traditions blend seamlessly with a dynamic urban atmosphere. Discover its warm hospitality, taste traditional delicacies, and uncover the secrets of a lesser-known European treasure."
+                    },
+                    {
+                    name: "Paris", 
+                    images: ["paris.jpg", "paris2.jpg"],
+                    text: "Ah, Paris! The epitome of romance and sophistication. This enchanting city will sweep you off your feet with its charming streets, iconic landmarks, and exquisite art and culture. Take a stroll along the Seine, savor a flaky croissant at a cozy café, and immerse yourself in the magic of the Louvre. From the magnificent Eiffel Tower to the bohemian streets of Montmartre, Paris offers a perfect blend of history, elegance, and joie de vivre. Get ready to fall in love with the City of Light!"
+                    },
+                    {
+                    name: "Azerbaijan",
+                    images: ["azerbaijan2.jpg", "azfood.jpg"],
+                    text: "Discover the enchanting land of Azerbaijan, known as the land of fire.Immerse yourself in a rich blend of ancient history, vibrant culture, and breathtaking landscapes. From the modern architecture of Baku to the mystic fire temples of Yanar Dag, Azerbaijan offers a unique journey filled with warm hospitality, delicious cuisine, and awe-inspiring natural wonders."
+                    },
+                    {
+                    name: "Nicosia",
+                    images: ["nicosia.jpg", "nicosia2.jpg"],
+                    text: "Uncover the captivating tale of Nicosia, the last divided capital in the world. Walk along the Green Line, which separates the city into two distinct regions, and experience the contrasting atmospheres of the Greek Cypriot and Turkish Cypriot sides. Discover historical landmarks, vibrant markets, and a vibrant cultural scene that reflects the complex history of this divided city."
+                    },
+                    {
+                    name: "Bahamas Out Islands",
+                    images: ["bahamas.jpg", "bahamas2.jpg"],
+                    text: "Escape the crowds and discover the allure of the Bahamas Out Islands, an unconventional paradise waiting to be explored. From the pristine white-sand beaches of Exuma to the vibrant coral reefs of Andros, these islands offer a serene retreat away from the bustling tourist hubs. Immerse yourself in the laid-back island lifestyle, connect with friendly locals, and embrace the natural beauty that surrounds you in this untouched Caribbean gem."
+                    },
+                    {
+                    name: "Liechtenstein",
+                    images: ["lich.jpg", "lich2.jpg"],
+                    text: "Discover the charm of Liechtenstein, a tiny principality nestled between Switzerland and Austria. Despite its small size, Liechtenstein boasts stunning alpine landscapes, picturesque villages, and a rich cultural heritage. Explore the fairytale-like Vaduz Castle, hike through the scenic mountains, and indulge in the country's sophisticated art scene. Liechtenstein may be small, but it leaves a lasting impression with its warm hospitality and breathtaking vistas."
+                    },
+                    {
+                    name: "Asturias",
+                    images: ["asturias.jpg", "asturias2.jpg"],
+                    text: "Indulge your taste buds and discover the culinary delights of Asturias, the cheese capital of Spain. Nestled between the Cantabrian Sea and the stunning Picos de Europa mountains, Asturias offers a picturesque landscape where lush green pastures are home to traditional cheese-making farms. Savor artisanal cheeses, sample local ciders, and explore charming coastal villages. Asturias is a paradise for food lovers and nature enthusiasts alike."
+                    }, 
+                    {
+                    name: "Jordan",
+                    images: ["jordan.jpg", "jordan2.jpg"],
+                    text: "Jordan, a captivating gem of the Middle East, beckons travelers with its rich history, stunning landscapes, and warm hospitality. Explore the rose-colored city of Petra, a UNESCO World Heritage Site, and marvel at its intricate rock-cut architecture. Immerse yourself in the otherworldly landscapes of Wadi Rum, where vast desert dunes and towering sandstone cliffs create a surreal atmosphere. Float effortlessly in the mineral-rich waters of the Dead Sea and experience the sensation of weightlessness. Discover the ancient Roman ruins of Jerash, where history comes alive amidst grand temples and impressive amphitheaters. Delve into the vibrant culture of Amman, the capital city, where traditional markets, modern art galleries, and bustling cafes blend seamlessly. Whether it's exploring archaeological wonders, indulging in delicious Jordanian cuisine, or venturing into the rugged beauty of the desert, Jordan offers a truly unforgettable journey for every traveler."
+                    },
+                    {
+                    name: "Naples",
+                    images: ["naples.jpg", "naples2.jpg"],
+                    text: "Naples, located in the heart of Italy's Campania region, is a city that embodies the vibrant spirit of Southern Italy. Known for its rich history, delectable cuisine, and stunning coastal views, Naples is a treasure trove of cultural experiences. Wander through the narrow streets of the historic center, a UNESCO World Heritage Site, and marvel at the grandeur of the Royal Palace of Naples. Indulge in the city's famous pizza, crafted with the freshest local ingredients and baked in traditional wood-fired ovens. Explore the nearby ruins of Pompeii and Herculaneum, ancient cities frozen in time by the eruption of Mount Vesuvius. From the panoramic views atop Mount Vesuvius itself to the picturesque beauty of the Amalfi Coast, Naples offers a perfect blend of history, art, and natural splendor."
+                    },
+                    {
+                    name: "Jamaica",
+                    images: ["jamaica.jpg", "jamaica2.jpg"],
+                    text: "Jamaica, the jewel of the Caribbean, captivates visitors with its vibrant culture, stunning beaches, and lush tropical landscapes. Known for its reggae music, spicy cuisine, and warm-hearted people, Jamaica offers a laid-back and inviting atmosphere. Relax on the powdery white sands of Negril or Montego Bay, surrounded by crystal-clear turquoise waters. Immerse yourself in the pulsating rhythm of Kingston, the birthplace of reggae and home to the legendary Bob Marley Museum. Explore the breathtaking waterfalls and lush rainforests of Ocho Rios, where adventure awaits at every turn. Discover the vibrant colors and flavors of Jamaican cuisine, from jerk chicken to fresh seafood delicacies. Whether you're seeking relaxation on the beach, thrilling water sports, or a cultural immersion in the heart of the Caribbean, Jamaica is a tropical paradise that leaves a lasting impression."
+                    }
+
+
+                ]
+                
+                var randomIndex = Math.floor(Math.random()*destination.length); 
+                var randomDestination = destination[randomIndex]; 
+
+                var destinationName = document.getElementById("destinationName"); 
+                var destinationText = document.getElementById("destinationText");
+                var slideshowContainer = document.querySelector(".slideshow-container"); 
+
+                destinationName.textContent = randomDestination.name;
+                destinationText.textContent = randomDestination.text;
+
+                 // Clear existing slideshow images
+                 slideshowContainer.innerHTML = "";
+
+                // Generate slideshow images dynamically
+                randomDestination.images.forEach(function(imageSrc) {
+                     var img = document.createElement("img");
+                     img.src = imageSrc;
+                     img.alt = randomDestination.name;
+                     slideshowContainer.appendChild(img);
+                }); 
+
+
+    // Store the slideshow images in an array
+    var slideshowImages = Array.from(slideshowContainer.querySelectorAll("img"));
+
+    // Variable to keep track of the current image index
+    var currentIndex = 0;
+
+    // Function to toggle between the two images on hover
+    function toggleImages() {
+            slideshowImages[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex + 1) % slideshowImages.length;
+            slideshowImages[currentIndex].style.opacity = 1;
+        }
+
+    slideshowContainer.addEventListener("mouseenter", toggleImages);
+    
+
+            }
+
+        </script>
+            
+
+    </body>
+</html>
